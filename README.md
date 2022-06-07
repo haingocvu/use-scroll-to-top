@@ -2,6 +2,14 @@
 
 Scroll to top utilities for react hooks.
 
+## Demo
+
+<h4 align="left">
+  <a href="https://use-scroll-to-top.netlify.app/" target="_blank">
+    Demo page
+  </a>
+</h4>
+
 ## Installation
 
 ```js
