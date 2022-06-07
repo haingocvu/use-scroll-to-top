@@ -9,7 +9,7 @@ interface ScrollInput {
   pageYOffset?: number;
 }
 
-export function useScrollToTop(params?: ScrollInput): ScrollReturn {
+export default function useScrollToTop(params?: ScrollInput): ScrollReturn {
   const pageYOffset = params?.pageYOffset || 400;
 
   const [showScroll, setShowScroll] = useState(false);

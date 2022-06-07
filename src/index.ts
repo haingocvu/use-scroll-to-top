@@ -1,3 +1,3 @@
-import { useScrollToTop } from './useScrollToTop';
+import useScrollToTop from './useScrollToTop';
 
 export { useScrollToTop };

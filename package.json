@@ -1,6 +1,6 @@
 {
   "name": "use-scroll-to-top",
-  "version": "8.0.1",
+  "version": "0.0.1",
   "description": "scroll to top utilities hook for react",
   "source": "src/index.ts",
   "main": "dist/index.js",
