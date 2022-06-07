@@ -1,16 +1,20 @@
-## use-scroll-to-top
+# use-scroll-to-top
 
 Scroll to top utilities for react hooks.
 
-# Installation
+## Installation
 
-`npm install use-scroll-to-top`
+```js
+npm install use-scroll-to-top
+```
 
 or
 
-`yarn install use-scroll-to-top`
+```js
+yarn add use-scroll-to-top
+```
 
-# API
+## API
 
 ```typescript
 import React from 'react';
