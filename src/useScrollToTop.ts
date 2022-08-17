@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 interface ScrollReturn {
   showScroll: boolean;
@@ -14,13 +14,15 @@ export default function useScrollToTop(params?: ScrollInput): ScrollReturn {
 
   const [showScroll, setShowScroll] = useState(false);
 
-  const checkScrollTop = () => {
-    if (!showScroll && window.pageYOffset > pageYOffset) {
-      setShowScroll(true);
-    } else if (showScroll && window.pageYOffset <= pageYOffset) {
-      setShowScroll(false);
-    }
-  };
+  const checkScrollTop = useCallback(() => {
+    () => {
+      if (!showScroll && window.pageYOffset > pageYOffset) {
+        setShowScroll(true);
+      } else if (showScroll && window.pageYOffset <= pageYOffset) {
+        setShowScroll(false);
+      }
+    };
+  }, [pageYOffset, showScroll]);
 
   const scrollTop = useCallback(() => {
     window.scrollTo({
@@ -29,7 +31,12 @@ export default function useScrollToTop(params?: ScrollInput): ScrollReturn {
     });
   }, []);
 
-  window.addEventListener('scroll', checkScrollTop);
+  useEffect(() => {
+    window.addEventListener('scroll', checkScrollTop);
+    return () => {
+      window.removeEventListener('scroll', checkScrollTop);
+    };
+  }, [checkScrollTop]);
 
   return {
     showScroll,
